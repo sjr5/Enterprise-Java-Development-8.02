@@ -1,0 +1,24 @@
+<h1>Contact Form</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="contextForm" >
+    <input type="text" placeholder="Name" formControlName="name"><br>
+    <p [ngStyle]="{'background-color': 'red'}" *ngIf="nameInput.invalid && nameInput.touched">
+        name invalid
+    </p>
+    <input type="email" placeholder="email" formControlName="email"/><br>
+    <p [ngStyle]="{'background-color': 'red'}" *ngIf="emailInput.invalid  && emailInput.touched">
+        email invalid
+    </p>
+    <input type="text" placeholder="occupation" formControlName="occupation"/><br>
+    <input type="text" placeholder="subject" formControlName="subjcet"><br>
+    <p [ngStyle]="{'background-color': 'red'}" *ngIf="subjcetInput.invalid  && subjcetInput.touched">
+        subject invalid
+    </p>
+    <textarea cols="30" rows="10" placeholder="content" formControlName="content" >
+    </textarea>
+    <p [ngStyle]="{'background-color': 'red'}" *ngIf="contentInput.invalid && contentInput.touched">
+    content invalid
+    </p>
+    <br>
+    <button mat-raised-button color="accent" type="submit" [disabled]="contextForm.invalid">submit</button>
+</form>
+<button mat-raised-button color="accent" routerLink="/">Go Back</button>
